@@ -1,0 +1,186 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+10.0.2.7,,8009,tcp,9.8,High,99,"VendorFix","Apache Tomcat AJP RCE Vulnerability (Ghostcat)","Apache Tomcat is prone to a remote code execution vulnerability
+  (dubbed 'Ghostcat') in the AJP connector.","It was possible to read the file ""/WEB-INF/web.xml"" through the AJP connector.
+
+Result:
+
+AB w\x0004 Ã\x0088 \x0003200  \x0003Â \x0007 =JSESSIONID=44A98F4E76678BBA46A069AB344B8045; Path=/; HttpOnly Â \x0001 \x001Ctext/html;charset=ISO-8859-1 Â \x0003 \x00041227 AB\x0004Ã\x008F\x0003\x0004Ã\x008B<?xml version=""1.0"" encoding=""UTF-8""?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the ""License""); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an ""AS IS"" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<web-app xmlns=""http://xmlns.jcp.org/xml/ns/javaee""
+  xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""
+  xsi:schemaLocation=""http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd""
+  version=""4.0""
+  metadata-complete=""true"">
+
+  <display-name>Welcome to Tomcat</display-name>
+  <description>
+     Welcome to Tomcat
+  </description>
+
+</web-app>
+ AB \x0002\x0005\x0001
+",1.3.6.1.4.1.25623.1.0.143545,"CVE-2020-1938",bc50f64f-f017-4967-aa95-5c8b5f1c07b9,"Immediate scan of IP 10.0.2.7",2024-04-30T02:09:32Z,1f483784-72a4-427a-bea5-33ee275f5047,"","Update Apache Tomcat to version 7.0.100, 8.5.51, 9.0.31 or later. For other products
+  using Tomcat please contact the vendor for more information on fixed versions.","Apache Tomcat versions prior 7.0.100, 8.5.51 or 9.0.31 when the AJP connector
+  is enabled.
+
+  Other products like JBoss or Wildfly which are using Tomcat might be affected as well.","Apache Tomcat server has a file containing vulnerability, which can be used by
+  an attacker to read or include any files in all webapp directories on Tomcat, such as webapp configuration files
+  or source code.","Sends a crafted AJP request and checks the response.
+Details:
+Apache Tomcat AJP RCE Vulnerability (Ghostcat)
+(OID: 1.3.6.1.4.1.25623.1.0.143545)
+Version used: 2023-07-06T05:05:36Z
+","","","DFN-CERT-2021-1736,DFN-CERT-2020-1508,DFN-CERT-2020-1413,DFN-CERT-2020-1276,DFN-CERT-2020-1134,DFN-CERT-2020-0850,DFN-CERT-2020-0835,DFN-CERT-2020-0821,DFN-CERT-2020-0569,DFN-CERT-2020-0557,DFN-CERT-2020-0501,DFN-CERT-2020-0381,WID-SEC-2023-2480,CB-K20/0711,CB-K20/0705,CB-K20/0693,CB-K20/0555,CB-K20/0543,CB-K20/0154",""
+10.0.2.7,,8080,tcp,6.8,Medium,99,"Mitigation","Apache Tomcat servlet/JSP container default files","The Apache Tomcat servlet/JSP container has default files installed.","The following default files were found : 
+http://10.0.2.7:8080/examples/servlets/index.html
+http://10.0.2.7:8080/examples/jsp/snp/snoop.jsp
+http://10.0.2.7:8080/examples/jsp/index.html
+
+",1.3.6.1.4.1.25623.1.0.12085,"",bc50f64f-f017-4967-aa95-5c8b5f1c07b9,"Immediate scan of IP 10.0.2.7",2024-04-30T02:09:32Z,39b0f26f-28df-4420-834e-05ade9970d70,"These files should be removed as they may help an attacker to guess the
+  exact version of the Apache Tomcat which is running on this host and may
+  provide other useful information.","Remove default files, example JSPs and Servlets from the Tomcat
+  Servlet/JSP container.","","Default files, such as documentation, default Servlets and JSPs were found on
+  the Apache Tomcat servlet/JSP container.","
+Details:
+Apache Tomcat servlet/JSP container default files
+(OID: 1.3.6.1.4.1.25623.1.0.12085)
+Version used: 2023-08-01T13:29:10Z
+","Product: cpe:/a:apache:tomcat:9.0.7
+Method: Apache Tomcat Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.107652)
+","","",""
+10.0.2.7,,22,tcp,5.3,Medium,50,"WillNotFix","OpenSSH Information Disclosure Vulnerability (CVE-2016-20012)","OpenBSD OpenSSH is prone to an information disclosure
+  vulnerability.","Installed version: 7.2p2
+Fixed version:     None
+Installation
+path / port:       22/tcp
+
+",1.3.6.1.4.1.25623.1.0.117777,"CVE-2016-20012",bc50f64f-f017-4967-aa95-5c8b5f1c07b9,"Immediate scan of IP 10.0.2.7",2024-04-30T02:09:32Z,9c82615c-2e37-4398-94ac-390a41f234a2,"","No known solution was made available for at least one year since
+  the disclosure of this vulnerability. Likely none will be provided anymore. General solution options
+  are to upgrade to a newer release, disable respective features, remove the product or replace the
+  product by another one.","All currently OpenSSH versions are known to be affected.","OpenSSH allows remote attackers, who have a suspicion that a
+  certain combination of username and public key is known to an SSH server, to test whether this
+  suspicion is correct. This occurs because a challenge is sent only when that combination could be
+  valid for a login session.","Checks if a vulnerable version is present on the target host.
+Details:
+OpenSSH Information Disclosure Vulnerability (CVE-2016-20012)
+(OID: 1.3.6.1.4.1.25623.1.0.117777)
+Version used: 2022-11-24T10:18:54Z
+","Product: cpe:/a:openbsd:openssh:7.2p2
+Method: OpenSSH Detection Consolidation
+(OID: 1.3.6.1.4.1.25623.1.0.108577)
+","","CB-K21/0979",""
+10.0.2.7,,8080,tcp,4.8,Medium,80,"Workaround","Cleartext Transmission of Sensitive Information via HTTP","The host / application transmits sensitive information (username, passwords) in
+  cleartext via HTTP.","The following URLs requires Basic Authentication (URL:realm name):
+
+http://10.0.2.7:8080/host-manager/html:""Tomcat Host Manager Application""
+http://10.0.2.7:8080/manager/html:""Tomcat Manager Application""
+http://10.0.2.7:8080/manager/status:""Tomcat Manager Application""
+",1.3.6.1.4.1.25623.1.0.108440,"",bc50f64f-f017-4967-aa95-5c8b5f1c07b9,"Immediate scan of IP 10.0.2.7",2024-04-30T02:09:32Z,acbeba83-91f0-4fb3-bbc6-c604cf18e78e,"An attacker could use this situation to compromise or eavesdrop on the
+  HTTP communication between the client and the server using a man-in-the-middle attack to get access to
+  sensitive data like usernames or passwords.","Enforce the transmission of sensitive data via an encrypted SSL/TLS connection.
+  Additionally make sure the host / application is redirecting all users to the secured SSL/TLS connection before
+  allowing to input sensitive data into the mentioned functions.","Hosts / applications which doesn't enforce the transmission of sensitive data via an
+  encrypted SSL/TLS connection.","","Evaluate previous collected information and check if the host / application is not
+  enforcing the transmission of sensitive data via an encrypted SSL/TLS connection.
+
+  The script is currently checking the following:
+
+  - HTTP Basic Authentication (Basic Auth)
+
+  - HTTP Forms (e.g. Login) with input field of type 'password'
+Details:
+Cleartext Transmission of Sensitive Information via HTTP
+(OID: 1.3.6.1.4.1.25623.1.0.108440)
+Version used: 2023-09-07T05:05:21Z
+","","","",""
+10.0.2.7,,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 216072
+Packet 2: 216337
+",1.3.6.1.4.1.25623.1.0.80091,"",bc50f64f-f017-4967-aa95-5c8b5f1c07b9,"Immediate scan of IP 10.0.2.7",2024-04-30T02:09:32Z,34bc72f4-8fb7-40b5-939d-87cdeaeb36eb,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+10.0.2.7,,22,tcp,2.6,Low,80,"Mitigation","Weak MAC Algorithm(s) Supported (SSH)","The remote SSH server is configured to allow / support weak MAC
+  algorithm(s).","The remote SSH server supports the following weak client-to-server MAC algorithm(s):
+
+umac-64-etm@openssh.com
+umac-64@openssh.com
+
+
+The remote SSH server supports the following weak server-to-client MAC algorithm(s):
+
+umac-64-etm@openssh.com
+umac-64@openssh.com
+",1.3.6.1.4.1.25623.1.0.105610,"",bc50f64f-f017-4967-aa95-5c8b5f1c07b9,"Immediate scan of IP 10.0.2.7",2024-04-30T02:09:32Z,4b91a373-43fa-4d6b-b500-e1167b95e6e9,"","Disable the reported weak MAC algorithm(s).","","","Checks the supported MAC algorithms (client-to-server and
+  server-to-client) of the remote SSH server.
+
+  Currently weak MAC algorithms are defined as the following:
+
+  - MD5 based algorithms
+
+  - 96-bit based algorithms
+
+  - 64-bit based algorithms
+
+  - 'none' algorithm
+Details:
+Weak MAC Algorithm(s) Supported (SSH)
+(OID: 1.3.6.1.4.1.25623.1.0.105610)
+Version used: 2023-10-12T05:05:32Z
+","","","",""
+10.0.2.7,,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",bc50f64f-f017-4967-aa95-5c8b5f1c07b9,"Immediate scan of IP 10.0.2.7",2024-04-30T02:09:32Z,69217379-7fb8-4a9a-a7d5-e3f6b1b7326f,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2023-05-11T09:09:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""
